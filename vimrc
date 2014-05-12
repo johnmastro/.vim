@@ -307,7 +307,7 @@ augroup END
 
 augroup ft_gitcommit
     autocmd!
-    autocmd Filetype gitcommit setlocal formatoptions+=t textwidth=72
+    autocmd Filetype gitcommit setlocal spell formatoptions+=t textwidth=72
 augroup END
 
 " }}}
