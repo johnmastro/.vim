@@ -282,14 +282,6 @@ augroup ft_vim
 augroup END
 
 " }}}
-" slimv {{{
-
-augroup ft_slimv
-    autocmd!
-    autocmd BufWinEnter SLIMV.REPL setlocal nolist
-augroup END
-
-" }}}
 " ruby {{{
 
 augroup ft_ruby
