@@ -252,7 +252,7 @@ let g:SuperTabLongestEnhanced = 1
 let g:SuperTabLongestHighlight = 1
 let g:SuperTabClosePreviewOnPopupClose = 1
 
-autocmd Filetype *
+autocmd FileType *
     \ if &omnifunc != '' |
     \     call SuperTabChain(&omnifunc, '<c-n>') |
     \     call SuperTabSetDefaultCompletionType('<c-x><c-u>') |
@@ -267,7 +267,7 @@ autocmd Filetype *
 
 augroup color_column
     autocmd!
-    autocmd Filetype clojure,lisp,python,javascript,sh,zsh,vim,rst,markdown
+    autocmd FileType clojure,lisp,python,javascript,sh,zsh,vim,rst,markdown
         \ if exists('&colorcolumn') |
         \     setlocal colorcolumn=+1 |
         \ endif
@@ -278,7 +278,7 @@ augroup END
 
 augroup ft_vim
     autocmd!
-    autocmd Filetype vim setlocal foldmethod=marker foldlevel=0
+    autocmd FileType vim setlocal foldmethod=marker foldlevel=0
 augroup END
 
 " }}}
@@ -294,7 +294,7 @@ augroup END
 
 augroup ft_ruby
     autocmd!
-    autocmd Filetype ruby setlocal et sw=2 ts=2 sts=2
+    autocmd FileType ruby setlocal et sw=2 ts=2 sts=2
 augroup END
 
 " }}}
@@ -302,12 +302,12 @@ augroup END
 
 augroup ft_gitconfig
     autocmd!
-    autocmd Filetype gitconfig setlocal noexpandtab sts=0 ts=8 sw=8
+    autocmd FileType gitconfig setlocal noexpandtab sts=0 ts=8 sw=8
 augroup END
 
 augroup ft_gitcommit
     autocmd!
-    autocmd Filetype gitcommit setlocal spell formatoptions+=t textwidth=72
+    autocmd FileType gitcommit setlocal spell formatoptions+=t textwidth=72
 augroup END
 
 " }}}
@@ -315,7 +315,7 @@ augroup END
 
 augroup ft_yaml
     autocmd!
-    autocmd Filetype yaml setlocal et sw=2 ts=2 sts=2
+    autocmd FileType yaml setlocal et sw=2 ts=2 sts=2
 augroup END
 
 " }}}
@@ -324,7 +324,7 @@ augroup END
 augroup ft_html
     autocmd!
     autocmd BufNewFile,BufRead *.html setlocal filetype=htmljinja
-    autocmd Filetype htmljinja setlocal et sw=2 ts=2 sts=2
+    autocmd FileType htmljinja setlocal et sw=2 ts=2 sts=2
 augroup END
 
 " }}}
@@ -332,7 +332,7 @@ augroup END
 
 augroup ft_c
     autocmd!
-    autocmd Filetype c setlocal noet sw=8 ts=8 sts=8
+    autocmd FileType c setlocal noet sw=8 ts=8 sts=8
 augroup END
 
 " }}}
@@ -340,7 +340,7 @@ augroup END
 
 augroup ft_make
     autocmd!
-    autocmd Filetype make setlocal noet sw=8 ts=8 sts=8
+    autocmd FileType make setlocal noet sw=8 ts=8 sts=8
 augroup END
 
 " }}}
@@ -348,7 +348,7 @@ augroup END
 
 augroup ft_rst
     autocmd!
-    autocmd Filetype rst,markdown setlocal textwidth=72
+    autocmd FileType rst,markdown setlocal textwidth=72
 augroup END
 
 " }}}
@@ -357,7 +357,7 @@ augroup END
 augroup ft_markdown
     autocmd!
     autocmd BufNewFile,BufRead *.md setlocal filetype=markdown
-    autocmd Filetype markdown setlocal textwidth=72
+    autocmd FileType markdown setlocal textwidth=72
 augroup END
 
 " }}}
@@ -367,7 +367,7 @@ let g:sql_type_default = '_pgsql'
 
 augroup ft_sql
     autocmd!
-    autocmd Filetype sql setlocal commentstring=--%s
+    autocmd FileType sql setlocal commentstring=--%s
 augroup END
 
 " }}}
