@@ -206,6 +206,11 @@ nnoremap zO zCzO
 " }}}
 " plugin settings / mappings ---------------------------------------------- {{{
 
+" fugitive {{{
+
+map <leader>g :Gstatus <cr>
+
+" }}}
 " nerdtree {{{
 
 let NERDTreeIgnore=['\~$', '.*\.pyc$']
