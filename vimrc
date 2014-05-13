@@ -348,7 +348,7 @@ augroup END
 
 augroup ft_rst
     autocmd!
-    autocmd FileType rst,markdown setlocal textwidth=72
+    autocmd FileType rst setlocal spell textwidth=72
 augroup END
 
 " }}}
@@ -357,7 +357,7 @@ augroup END
 augroup ft_markdown
     autocmd!
     autocmd BufNewFile,BufRead *.md setlocal filetype=markdown
-    autocmd FileType markdown setlocal textwidth=72
+    autocmd FileType markdown setlocal spell textwidth=72
 augroup END
 
 " }}}
