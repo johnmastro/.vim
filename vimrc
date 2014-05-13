@@ -174,7 +174,7 @@ vnoremap <leader>y "*ygv
 vnoremap <f2> "+y
 
 " clear search highlighting
-nnoremap <silent> <leader>/ :nohlsearch<cr>
+nnoremap <silent> <leader>l :nohlsearch<cr>
 
 " remove trailing whitespace
 nnoremap <silent> <leader>w mz:%s/\s\+$//<cr>:let @/=''<cr>`z
