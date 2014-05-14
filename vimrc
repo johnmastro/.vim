@@ -211,6 +211,20 @@ nnoremap zO zCzO
 map <leader>g :Gstatus <cr>
 
 " }}}
+" {{{ netrw --------------------------------------------------------------- {{{
+
+let g:netrw_sort_by = "time"
+let g:netrw_sort_direction = "reverse"
+let g:netrw_sort_options = "i"  " case insensitive when by name
+let g:netrw_special_syntax = 1
+let g:netrw_liststyle = 1
+let g:netrw_timefmt = "%Y-%m-%d %I:%M:%S %p"
+
+if executable("ctags-exuberant")
+    let g:netrw_ctags = "ctags-exuberant"
+endif
+
+"}}}
 " nerdtree {{{
 
 let NERDTreeIgnore=['\~$', '.*\.pyc$']
