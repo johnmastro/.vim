@@ -450,14 +450,6 @@ function! ToggleShowTrailing()
     endif
 endfunction
 
-" Show the stack of syntax highlighting classes affecting whatever's
-" under the cursor.
-" (From https://bitbucket.org/sjl/dotfiles/src/tip/vim/vimrc)
-function! SynStack()
-    echo join(map(synstack(line('.'), col('.')),
-        \ 'synIDattr(v:val, "name")'), " > ")
-endfunction
-
 function! YankWholeBuffer()
     let saved = winsaveview()
     execute "normal! gg\"+yG"
