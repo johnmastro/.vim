@@ -100,6 +100,25 @@ if exists('&undodir')
 endif
 
 " }}}
+" dictionary -------------------------------------------------------------- {{{
+
+for s:file in ['/usr/share/dict/words', '~/Dropbox/dict/words']
+    let s:file = expand(s:file)
+    if filereadable(s:file)
+        execute "set dictionary=" . s:file
+        break
+    endif
+endfor
+
+" words.utf-8.add is version controlled, .words-local.utf-8.add is not (useful
+" for e.g. work stuff)
+set spellfile=~/.vim/words.utf-8.add,~/.vim/.words-local.utf-8.add
+
+" zg adds a word to the version controlled list, zG adds a word to the
+" local-only list
+nnoremap zG 2zg
+
+" }}}
 " interface --------------------------------------------------------------- {{{
 
 syntax enable
