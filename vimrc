@@ -47,6 +47,9 @@ set completeopt=longest,menu,preview
 set foldlevelstart=99  " all folds open
 set cpo+=J  " stevelosh.com/blog/2012/10/why-i-two-space/ convinced me
 set tabpagemax=50
+set autoread
+set fileformats+=mac
+set sessionoptions-=options
 
 " wildignore {{{
 
@@ -73,7 +76,7 @@ set shiftwidth=4
 set softtabstop=4
 set expandtab
 set autoindent
-set smartindent
+"set smartindent
 set wrap
 set textwidth=79
 set formatoptions=qrn1
@@ -134,7 +137,10 @@ colorscheme solarized
 
 let mapleader=' '
 let maplocalleader='\'
+
+" un-shifted access to command-line mode
 nnoremap ; :
+vnoremap ; :
 
 " move by screen (as opposed to file) lines
 nnoremap j gj
@@ -182,17 +188,19 @@ nnoremap <silent> <leader>w mz:%s/\s\+$//<cr>:let @/=''<cr>`z
 " toggle whether trailing whitespace is shown
 nnoremap <silent> <leader>T :call ToggleShowTrailing()<cr>
 
-" window & buffer navigation {{{
-
+" create new splits
 nnoremap <leader>v :vnew<cr>
 nnoremap <leader>s :new<cr>
+
+" move between splits
 nnoremap <c-h> <c-w>h
 nnoremap <c-j> <c-w>j
 nnoremap <c-k> <c-w>k
 nnoremap <c-l> <c-w>l
 
-" }}}
-" folding {{{
+" close splits
+nnoremap <leader>c <c-w>c
+nnoremap <leader>o <c-w>o
 
 " toggle folds
 nnoremap <tab> za
@@ -202,10 +210,15 @@ vnoremap <tab> za
 nnoremap zO zCzO
 
 " }}}
-
-" }}}
 " plugin settings / mappings ---------------------------------------------- {{{
 
+" matchit {{{
+
+if !exists('g:loaded_matchit')
+    runtime! macros/matchit.vim
+endif
+
+" }}}
 " fugitive {{{
 
 map <leader>g :Gstatus <cr>
