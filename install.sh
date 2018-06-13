@@ -15,6 +15,4 @@ mklink () {
     ln -s "$src" "$dst"
 }
 
-mkdir -p $HOME/.tmp/vim/{backup,undo,swap,ctrlp}
-
 mklink "$here/.vimrc" "$HOME/.vimrc"

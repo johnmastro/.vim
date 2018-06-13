@@ -87,6 +87,13 @@ set listchars=tab:▸\ ,extends:»,precedes:«,trail:·
 " }}}
 " undo, backup, and swap -------------------------------------------------- {{{
 
+for s:directory in ["swap", "backup", "undo"]
+    let s:directory = expand("~/.tmp/vim/" . s:directory)
+    if !isdirectory(s:directory)
+        call mkdir(s:directory, "p")
+    endif
+endfor
+
 set history=1000
 set directory^=~/.tmp/vim/swap//
 set backupdir^=~/.tmp/vim/backup//
