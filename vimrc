@@ -348,6 +348,19 @@ augroup ft_ruby
 augroup END
 
 " }}}
+" javascript {{{
+
+augroup ft_javascript
+    autocmd!
+    autocmd FileType javascript setlocal et sw=2 ts=2 sts=2
+augroup END
+
+augroup ft_json
+    autocmd!
+    autocmd FileType json setlocal et sw=2 ts=2 sts=2
+augroup END
+
+" }}}
 " git {{{
 
 augroup ft_gitconfig
