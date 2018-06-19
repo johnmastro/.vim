@@ -24,14 +24,32 @@ cnoremap        <C-B> <Left>
 inoremap <expr> <C-D> col('.')>strlen(getline('.'))?"\<Lt>C-D>":"\<Lt>Del>"
 cnoremap <expr> <C-D> getcmdpos()>strlen(getcmdline())?"\<Lt>C-D>":"\<Lt>Del>"
 
-inoremap <expr> <C-E> col('.')>strlen(getline('.'))?"\<Lt>C-E>":"\<Lt>End>"
+inoremap <expr> <C-E> col('.')>strlen(getline('.'))<bar><bar>pumvisible()?"\<Lt>C-E>":"\<Lt>End>"
 
 inoremap <expr> <C-F> col('.')>strlen(getline('.'))?"\<Lt>C-F>":"\<Lt>Right>"
 cnoremap <expr> <C-F> getcmdpos()>strlen(getcmdline())?&cedit:"\<Lt>Right>"
 
-noremap! <expr> <SID>transposition getcmdpos()>strlen(getcmdline())?"\<Left>":getcmdpos()>1?'':"\<Right>"
-noremap! <expr> <SID>transpose "\<BS>\<Right>".matchstr(getcmdline()[0 : getcmdpos()-2], '.$')
-cmap   <script> <C-T> <SID>transposition<SID>transpose
+function! s:transpose() abort
+  let pos = getcmdpos()
+  if getcmdtype() =~# '[?/]'
+    return "\<C-T>"
+  elseif pos > strlen(getcmdline())
+    let pre = "\<Left>"
+    let pos -= 1
+  elseif pos <= 1
+    let pre = "\<Right>"
+    let pos += 1
+  else
+    let pre = ""
+  endif
+  return pre . "\<BS>\<Right>".matchstr(getcmdline()[0 : pos-2], '.$')
+endfunction
+
+cnoremap <expr> <C-T> <SID>transpose()
+
+if exists('g:rsi_no_meta')
+  finish
+endif
 
 if &encoding ==# 'latin1' && has('gui_running') && !empty(findfile('plugin/sensible.vim', escape(&rtp, ' ')))
   set encoding=utf-8
@@ -45,7 +63,7 @@ noremap!        <M-f> <S-Right>
 noremap!        <M-n> <Down>
 noremap!        <M-p> <Up>
 
-if !has("gui_running")
+if !has("gui_running") && !has('nvim')
   silent! exe "set <S-Left>=\<Esc>b"
   silent! exe "set <S-Right>=\<Esc>f"
   silent! exe "set <F31>=\<Esc>d"

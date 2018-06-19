@@ -35,6 +35,9 @@ MAPS                                            *rsi-maps*
 <C-f>                   Move forward one character.  Falls back to
                         |i_CTRL-F| or |c_CTRL-F| at the end of the line.
 
+                                                *rsi-CTRL-G*
+<C-g>                   Removed, as it conflicts with |c_CTRL-G|.
+
                                                 *rsi-CTRL-T*
 <C-t>                   Transpose two characters.  This is mapped in command
                         line mode only, as |i_CTRL-T| is too important to
@@ -64,6 +67,10 @@ for a second if you actually press just escape.  Instead, rsi.vim makes
 these available by telling Vim they are existing special keys. For example,
 the key code for <S-Left> is changed to <Esc>b.
 
+To disable meta maps, add the following to your vimrc:
+>
+    let g:rsi_no_meta = 1
+<
 ABOUT                                           *rsi-about*
 
 Grab the latest version or report a bug on GitHub:
