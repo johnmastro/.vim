@@ -386,8 +386,8 @@ augroup END
 
 augroup ft_html
     autocmd!
-    autocmd BufNewFile,BufRead *.html setlocal filetype=htmljinja
-    autocmd FileType htmljinja setlocal et sw=2 ts=2 sts=2
+    autocmd FileType html setlocal et sw=2 ts=2 sts=2
+    autocmd FileType html setlocal commentstring=<!--\ %s\ -->
 augroup END
 
 " }}}
